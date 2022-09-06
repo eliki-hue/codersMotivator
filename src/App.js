@@ -6,16 +6,18 @@ import Reviews from './landingpage/Reviews';
 import About from './landingpage/About';
 import Footer from './landingpage/Footer';
 import Content from './Content';
+import Dashboard from './admin/Dashboard';
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+      {/* <Navbar/>
       <Header/>
       <Reviews/>
       <About/>
-      <Footer/>
+      <Footer/> */}
       {/* <Content/> */}
+      <Dashboard/>
      
     </div>
   );
