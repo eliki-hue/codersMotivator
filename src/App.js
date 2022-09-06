@@ -7,6 +7,7 @@ import About from './landingpage/About';
 import Footer from './landingpage/Footer';
 import Content from './Content';
 import Dashboard from './admin/Dashboard';
+import Chart from './admin/DashboardChart';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Footer/> */}
       {/* <Content/> */}
       <Dashboard/>
+      {/* <Chart/> */}
      
     </div>
   );

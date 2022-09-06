@@ -9,9 +9,9 @@ function Dashboard() {
       <div className="container-fluid">
         <div className="row">
           <div className="col-md-2" style={{ background: "blue" }}>
-            <p>dfghjk</p>
-            <p>dfghjk</p>
-            <p>dfghjk</p>
+            <p><button>Add User</button></p>
+            <p><button>Add Category</button></p>
+           
           </div>
           <div className="col-md-10" style={{ background: "" }}>
             <div className="container">
@@ -26,16 +26,15 @@ function Dashboard() {
               </div>
               <div className="row dash-card-row">
                 <div className="dash-card-1">
-                  <p>1234567</p>
-                  <p>fghjhkjdghdhdhjdjdj</p>
+                  <p>New requests: 1234</p>
+                  <p>New Posts: 1234</p>
+                  
                 </div>
                 <div className="dash-card-2">
-                  <p>fghjhkjdghdhdhjdjdj</p>
-                  <p>fghjhkjdghdhdhjdjdj</p>
+                <p>No. of Staff: 23</p>
                 </div>
                 <div className="dash-card-3">
-                  <p>fghjhkjdghdhdhjdjdj</p>
-                  <p>fghjhkjdghdhdhjdjdj</p>
+                <p>No. of Students: 23</p>
                 </div>
               </div>
               <div className="row dash-bar-row">
@@ -54,7 +53,7 @@ function Dashboard() {
               </div>
               <div className="row">
                 <div className="users-list">
-                  <h1>School Staffs</h1>
+                  <h1>Users</h1>
                   <table class="table table-dark">
                     <thead>
                       <tr>
@@ -65,6 +64,7 @@ function Dashboard() {
                         <th scope="col">Email</th>
                         <th scope="col">Role</th>
                         <th scope="col">Post</th>
+                        <th scope="col">Remove</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -78,6 +78,8 @@ function Dashboard() {
                         <td>123@gmail.com</td>
                         <td>staff</td>
                         <td>334</td>
+                        <td><button>Remove</button></td>
+
                       </tr>
                     </tbody>
                   </table>
