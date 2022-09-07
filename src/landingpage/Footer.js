@@ -1,9 +1,10 @@
 import React from 'react'
+import "./Landing.css"
 
 function Footer() {
   return (
     <div>
-        <div className='container-fluid' style={{color:"white", background:"blue"}}>
+        <div className='container-fluid footer-container' >
             <div className='row'>
                 <div className='col-sm-4'>
                     <h2>Subscribe to our Newsletter</h2>
