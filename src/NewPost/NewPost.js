@@ -1,5 +1,6 @@
 import "./NewPost.css";
 import React, { useState } from "react";
+import Videoupload from "./Videoupload"
 // import { useDispatch } from 'react-redux';
 
 // import {registerDriver} from '../actions/auth'
@@ -37,9 +38,9 @@ function NewPost() {
       <div className="signup">
         <form onSubmit={""} type="post">
           <h3>NewPost</h3>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Category</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+          <div className="form-group">
+            <label htmlFor="exampleFormControlSelect1">Category</label>
+            <select className="form-control" id="exampleFormControlSelect1">
               <option>Full-stack</option>
               <option>Backend</option>
               <option>Frontend</option>
@@ -73,16 +74,13 @@ function NewPost() {
           })}
         </center>
       </div>
-          <div className="inputs">
-            <label></label>
-            <input
-              type="password"
-              className="form-control"
-              placeholder="Enter password"
-              name="password1"
-              onChange={(e)=>setPostData({...postData, [e.target.name]:e.target.value})}
-            />
-          </div>
+
+
+      <h1>Video upload</h1>
+      <Videoupload width={400} height={300} />
+
+
+
           <div className="inputs">
             <label></label>
             <input
@@ -98,7 +96,7 @@ function NewPost() {
             <button type="submit">Submit</button>
           </div>
           <p className="forgot-password text-right">
-            Already have an account? <Link to='/login'>login</Link>
+            {/* Already have an account? <Link to=''>login</Link> */}
           </p>
         </form>
       </div>
