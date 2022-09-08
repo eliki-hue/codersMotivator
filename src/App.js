@@ -1,28 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './Navbar';
-import Header from './LandingPage/Header';
-import Reviews from './LandingPage/Reviews';
-import About from './LandingPage/About'
-import Footer from './LandingPage/Footer';
-import Dashboard from './Admin/Dashboard';
-import Chart from './Admin/DashboardChart'
-import Login from './Login/Login'
-import Profile from './Profile/Profile'
+import Header from './landingpage/Header';
+import Reviews from './landingpage/Reviews';
+import About from './landingpage/About';
+import Footer from './landingpage/Footer';
+import Content from './Content';
+import Dashboard from './admin/Dashboard';
+import Chart from './admin/DashboardChart';
+import Register from './register/Register';
+import NewPost from './NewPost/NewPost';
 
 function App() {
   return (
-    <div> 
-      {/* <Navbar/> */}
-      {/* <Header/> */}
-      {/* <Reviews/> */}
-      {/* <About/> */}
-      {/* <Footer/> */}
+    <div className="App">
+      {/* <Navbar/>
+      <Header/>
+      <Reviews/>
+      <About/>
+      <Footer/> */}
+      {/* <Content/> */}
       {/* <Dashboard/> */}
-      {/* <Login/> */}
-      <Profile/>
-
-
+      {/* <Chart/> */}
+      {/* <Register/> */}
+      <NewPost/>
+     
     </div>
   );
 }
