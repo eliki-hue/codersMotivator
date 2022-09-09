@@ -1,11 +1,11 @@
 import "./NewPost.css";
 import React, { useState } from "react";
-import Videoupload from "./Videoupload"
+import Videoupload from "./Videoupload";
 // import { useDispatch } from 'react-redux';
 
 // import {registerDriver} from '../actions/auth'
 // import {useNavigate} from "react-router-dom"
-import { HashLink as Link } from 'react-router-hash-link';
+import { HashLink as Link } from "react-router-hash-link";
 
 const initialState = {
   username: "",
@@ -17,7 +17,7 @@ const initialState = {
 function NewPost() {
   // let navigate =useNavigate();
 
-  const [postData, setPostData] = useState(initialState)
+  const [postData, setPostData] = useState(initialState);
   // const dispatch = useDispatch()
   // const handleSubmit = (e)=>{
   //     e.preventDefault()
@@ -25,13 +25,16 @@ function NewPost() {
   //     console.log(postData)
 
   // }
-  const [imgfile, uploadimg] = useState([])
-  	console.log("Image FIles",imgfile);
+  const [imgfile, uploadimg] = useState([]);
+  console.log("Image FIles", imgfile);
   const imgFilehandler = (e) => {
     if (e.target.files.length !== 0) {
-      uploadimg(imgfile => [...imgfile, URL.createObjectURL(e.target.files[0])])
+      uploadimg((imgfile) => [
+        ...imgfile,
+        URL.createObjectURL(e.target.files[0]),
+      ]);
     }
-  }
+  };
 
   return (
     <div className="container-fluid">
@@ -55,40 +58,42 @@ function NewPost() {
               className="form-control"
               placeholder="Title"
               name="title"
-              onChange={(e)=>setPostData({...postData, [e.target.name]:e.target.value})}
+              onChange={(e) =>
+                setPostData({ ...postData, [e.target.name]: e.target.value })
+              }
             />
           </div>
           <div>
-        <center>
-          <h2>Upload</h2>
-          <input type="file" onChange={imgFilehandler} />
-          <hr />
-          <h2>Preview</h2>
-          {imgfile.map((elem) => {
-            
-            return <>
-              <span key={elem}>
-                <img src={elem} height="200" width="200" alt="med1" />
-              </span>
-            </>
-          })}
-        </center>
-      </div>
+            <center>
+              <h2>Upload</h2>
+              <input type="file" onChange={imgFilehandler} />
+              <hr />
+              <h2>Preview</h2>
+              {imgfile.map((elem) => {
+                return (
+                  <>
+                    <span key={elem}>
+                      <img src={elem} height="200" width="200" alt="med1" />
+                    </span>
+                  </>
+                );
+              })}
+            </center>
+          </div>
 
-
-      <h1>Video upload</h1>
-      <Videoupload width={400} height={300} />
-
-
+          <h1>Video upload</h1>
+          <Videoupload width={400} height={300} />
 
           <div className="inputs">
             <label></label>
             <input
-              type="password"
+              type="textarea"
               className="form-control"
-              placeholder="Confirm password"
-              name="password2"
-              onChange={(e)=>setPostData({...postData, [e.target.name]:e.target.value})}
+              placeholder="Text"
+              name="text"
+              onChange={(e) =>
+                setPostData({ ...postData, [e.target.name]: e.target.value })
+              }
             />
           </div>
 
