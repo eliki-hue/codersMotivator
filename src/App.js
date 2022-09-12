@@ -14,13 +14,14 @@ import NewPost from "./NewPost/NewPost";
 import Category from "./NewPost/Testing";
 import Profile from "./Profile/Profile";
 import LoginRegister from "./Login/Login";
+import Main from "./landingpage/Main";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route index element={<Header/>}></Route>
+          <Route index element={<Main/>}></Route>
           <Route path="register" element={<Register/>}></Route>
           <Route path="login" element={<LoginRegister/>}></Route>
           <Route path="single-view" element={""}></Route>
