@@ -12,18 +12,20 @@ import Chart from "./admin/DashboardChart";
 import Register from "./register/Register";
 import NewPost from "./NewPost/NewPost";
 import Category from "./NewPost/Testing";
+import Profile from "./Profile/Profile";
+import LoginRegister from "./Login/Login";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="landing" element={<Header/>}></Route>
+          <Route index element={<Header/>}></Route>
           <Route path="register" element={<Register/>}></Route>
-          <Route path="login" element={}></Route>
-          <Route path="" element={}></Route>
-          <Route path="" element={}></Route>
-          <Route path="" element={}></Route>
+          <Route path="login" element={<LoginRegister/>}></Route>
+          <Route path="single-view" element={""}></Route>
+          <Route path="admin-dashboard" element={<Dashboard/>}></Route>
+          <Route path="new-post" element={<NewPost/>}></Route>
 
         </Routes>
       </BrowserRouter>
