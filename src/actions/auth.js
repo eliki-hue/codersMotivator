@@ -1,4 +1,4 @@
-import * as api from '../api/index'
+import { register } from "../API/api";
 import {useNavigate } from "react-router-dom"
 import { Route, Navigate} from 'react-router-dom';
 
@@ -6,7 +6,7 @@ import React from 'react'
 
 export const registration = (user) =>async(dispatch)=> {
   try {
-        const data = await api.registration(user)
+        const data = await register.registration(user)
         console.log(data)
         console.log(data.status)
   } catch (error) {
@@ -15,7 +15,7 @@ export const registration = (user) =>async(dispatch)=> {
   }
 }
 
-import React from 'react'
+
 
 const auth = () => {
   return (

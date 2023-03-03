@@ -15,11 +15,14 @@ import Category from "./NewPost/Testing";
 import Profile from "./Profile/Profile";
 import LoginRegister from "./Login/Login";
 import Main from "./landingpage/Main";
+import {Provider } from 'react-redux'
+
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      
+      <BrowserRouter >
         <Routes>
           <Route index element={<Main/>}></Route>
           <Route path="register" element={<Register/>}></Route>
@@ -30,6 +33,7 @@ function App() {
 
         </Routes>
       </BrowserRouter>
+    
     </div>
   );
 }

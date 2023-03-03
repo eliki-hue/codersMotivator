@@ -13,4 +13,4 @@ const postUnlikeUrl =`${mainUrl}/posts/<int:pk>/unlike/`
 const commentUrl =`${mainUrl}/comments/`
 
 
-export const registration =(user)=> axios.post(registrationUrl, user)
+export const register =(user)=> axios.post(registrationUrl, user)
