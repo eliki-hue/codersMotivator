@@ -1,10 +1,10 @@
 import "./Register.css";
 import React, { useState } from "react";
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-// import {registerDriver} from '../actions/auth'
-// import {useNavigate} from "react-router-dom"
-// import { HashLink as Link } from 'react-router-hash-link';
+import {registration} from '../actions/auth'
+import {useNavigate} from "react-router-dom"
+import { HashLink as Link } from 'react-router-hash-link';
 
 const initialState = {
   username: "",
@@ -14,16 +14,16 @@ const initialState = {
 };
 
 function Register() {
-  // let navigate =useNavigate();
+  let navigate =useNavigate();
 
-  // const [driverData, setDriverData] = useState(initialState)
-  // const dispatch = useDispatch()
-  // const handleSubmit = (e)=>{
-  //     e.preventDefault()
-  //     dispatch(registerDriver(driverData))
-  //     console.log(driverData)
+  const [userData, setUserData] = useState(initialState)
+  const dispatch = useDispatch()
+  const handleSubmit = (e)=>{
+      e.preventDefault()
+      dispatch(registration(userData))
+      console.log(userData)
 
-  // }
+  }
 
   return (
     <div className="container-fluid">
@@ -44,7 +44,7 @@ function Register() {
               className="form-control"
               placeholder="Your name"
               name="username"
-              // onChange={(e)=>setDriverData({...driverData, [e.target.name]:e.target.value})}
+              onChange={(e)=>setUserData({...userData, [e.target.name]:e.target.value})}
             />
           </div>
           <div className="inputs">
@@ -54,7 +54,7 @@ function Register() {
               className="form-control"
               placeholder="Enter Email"
               name="email"
-              // onChange={(e)=>setDriverData({...driverData, [e.target.name]:e.target.value})}
+              onChange={(e)=>setUserData({...userData, [e.target.name]:e.target.value})}
             />
           </div>
           <div className="inputs">
@@ -64,7 +64,7 @@ function Register() {
               className="form-control"
               placeholder="Enter password"
               name="password1"
-              // onChange={(e)=>setDriverData({...driverData, [e.target.name]:e.target.value})}
+              onChange={(e)=>setUserData({...userData, [e.target.name]:e.target.value})}
             />
           </div>
           <div className="inputs">
@@ -74,7 +74,7 @@ function Register() {
               className="form-control"
               placeholder="Confirm password"
               name="password2"
-              // onChange={(e)=>setDriverData({...driverData, [e.target.name]:e.target.value})}
+              onChange={(e)=>setUserData({...userData, [e.target.name]:e.target.value})}
             />
           </div>
 

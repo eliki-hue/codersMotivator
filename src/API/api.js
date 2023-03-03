@@ -11,3 +11,6 @@ const viewPostUrl = `${mainUrl}/api/post/`
 const postLikeUrl = `${mainUrl}/posts/<int:pk>/like/`
 const postUnlikeUrl =`${mainUrl}/posts/<int:pk>/unlike/`
 const commentUrl =`${mainUrl}/comments/`
+
+
+export const registration =(user)=> axios.post(registrationUrl, user)
