@@ -11,24 +11,21 @@ import { HashLink as Link } from 'react-router-hash-link';
 const initialState = {
   username: "",
   email: "",
-  password1: "",
-  password2: "",
+  password: "",
+  // password2: "",
 };
 
 function Register() {
   let navigate =useNavigate();
 
   const [userData, setUserData] = useState(initialState)
+
   // const dispatch = useDispatch()
   const handleSubmit = (e)=>{
       e.preventDefault()
 
       // dispatch(registration(userData))
-      axios.post("http://127.0.0.1:8000/registration", userData, {
-        headers: {
-          'Access-Control-Allow-Origin': '*'
-        }
-      })
+      axios.post("http://127.0.0.1:8000/authentication/registration", userData)
       .then(response => {
         console.log(response.data);
       })
@@ -40,16 +37,7 @@ function Register() {
 
   }
 
-  // function registerUser(username, password) {
-  //   const data = { username, password };
-  //   axios.post('/api/register', data)
-  //     .then(response => {
-  //       console.log(response.data);
-  //     })
-  //     .catch(error => {
-  //       console.error(error);
-  //     });
-  // }
+ 
 
   return (
     <div className="container-fluid">
@@ -83,13 +71,14 @@ function Register() {
               onChange={(e)=>setUserData({...userData, [e.target.name]:e.target.value})}
             />
           </div>
+          
           <div className="inputs">
             <label></label>
             <input
               type="password"
               className="form-control"
               placeholder="Enter password"
-              name="password1"
+              name="password"
               onChange={(e)=>setUserData({...userData, [e.target.name]:e.target.value})}
             />
           </div>
