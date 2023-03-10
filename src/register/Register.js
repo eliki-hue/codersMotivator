@@ -44,9 +44,9 @@ function Register() {
       <div className="signup">
         <form onSubmit={handleSubmit} type="post">
           <h3>Register</h3>
-          <div class="form-group">
+          <div className="form-group">
             <label for="exampleFormControlSelect1">You are?</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select className="form-control" id="exampleFormControlSelect1">
               <option>Student</option>
               <option>Staff</option>
             </select>
