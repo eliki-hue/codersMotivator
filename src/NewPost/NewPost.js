@@ -1,6 +1,7 @@
 import "./NewPost.css";
 import React, { useState } from "react";
 import Videoupload from "./Videoupload";
+import axios from "axios";
 // import { useDispatch } from 'react-redux';
 
 // import {registerDriver} from '../actions/auth'
@@ -8,10 +9,11 @@ import Videoupload from "./Videoupload";
 import { HashLink as Link } from "react-router-hash-link";
 
 const initialState = {
-  username: "",
-  email: "",
-  password1: "",
-  password2: "",
+  title: "",
+  category: 1,
+  image: "",
+  video: "",
+  author:1
 };
 
 function NewPost() {
@@ -19,12 +21,19 @@ function NewPost() {
 
   const [postData, setPostData] = useState(initialState);
   // const dispatch = useDispatch()
-  // const handleSubmit = (e)=>{
-  //     e.preventDefault()
-  //     dispatch(registerDriver(postData))
-  //     console.log(postData)
+  const handleSubmit = (e)=>{
+      e.preventDefault()
+      axios.post("http://127.0.0.1:8000/api/post/", postData)
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error(error, "not successful");
+      });
 
-  // }
+      console.log(postData)
+
+   }
   const [imgfile, uploadimg] = useState([]);
   console.log("Image FIles", imgfile);
   const imgFilehandler = (e) => {
@@ -32,6 +41,7 @@ function NewPost() {
       uploadimg((imgfile) => [
         ...imgfile,
         URL.createObjectURL(e.target.files[0]),
+        postData.image=imgfile
       ]);
     }
   };
@@ -39,7 +49,7 @@ function NewPost() {
   return (
     <div className="container-fluid">
       <div className="signup">
-        <form onSubmit={""} type="post">
+        <form onSubmit={handleSubmit} type="post">
           <h3>NewPost</h3>
           <div className="form-group">
             <label htmlFor="exampleFormControlSelect1">Category</label>

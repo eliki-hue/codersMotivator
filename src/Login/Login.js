@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React,{useState} from 'react';
 // import { useDispatch } from 'react-redux';
 // import { HashLink as Link } from 'react-router-hash-link';
@@ -16,6 +17,18 @@ const initialState = {
 function LoginRegister(){
 
     const [loginData, setLoginData] = useState(initialState)
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        console.log("submiting .......")
+        try {
+            const response = await axios.post("http://127.0.0.1:8000/authentication/login", loginData)
+            console.log(response)
+        } catch (error) {
+            console.error(error)
+        }
+        
+    }
     // const dispatch = useDispatch()
     // const navigate = useNavigate()
     // const handleSubmit =async (e)=>{
@@ -63,24 +76,24 @@ function LoginRegister(){
         // console.log(loginData)
     // } 
     return(
-        <div class="back">
-            <div class="div-center">
-                <div class="content">
+        <div className="back">
+            <div className="div-center">
+                <div className="content">
                     <h3 className='text-center'>Login</h3>
                     <hr />
-                    <form onSubmit={""} type="post">
-                        <div class="form-group">
+                    <form onSubmit={handleSubmit} type="post">
+                        <div className="form-group">
                             <label for="exampleInputEmail1">Username</label>
-                            <input class="form-control" type="text" name="username" onChange={(e)=>setLoginData({...loginData, [e.target.name]:e.target.value})} required/>
+                            <input className="form-control" type="text" name="username" onChange={(e)=>setLoginData({...loginData, [e.target.name]:e.target.value})} required/>
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" name="password" class="form-control" onChange={(e)=>setLoginData({...loginData, [e.target.name]:e.target.value})} required/>
+                            <input type="password" name="password" className="form-control" onChange={(e)=>setLoginData({...loginData, [e.target.name]:e.target.value})} required/>
                         </div>
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="submit" className="btn btn-primary">Login</button>
                         <hr />
-                        <button type="button" class="btn btn-link">Signup</button>
-                        <button type="button" class="btn btn-link">Reset Password</button>
+                        <button type="button" className="btn btn-link">Signup</button>
+                        <button type="button" className="btn btn-link">Reset Password</button>
                     </form>
                 </div>
             </div>
