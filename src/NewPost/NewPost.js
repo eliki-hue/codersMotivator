@@ -9,10 +9,12 @@ import { HashLink as Link } from "react-router-hash-link";
 import axios from "axios";
 
 const initialState = {
-  username: "",
-  email: "",
-  password1: "",
-  password2: "",
+  category: "1",
+  title: "",
+  image: "",
+  video: "",
+  author: 3,
+  
 };
 
 function NewPost() {
@@ -58,7 +60,7 @@ function NewPost() {
               <option>Backend</option>
               <option>Frontend</option>
               <option>Machine Learning</option>
-              <option>Artificial Interrigence</option>
+              <option>Artificial Intelligence</option>
             </select>
           </div>
           <div className="inputs">
@@ -100,7 +102,7 @@ function NewPost() {
               type="textarea"
               className="form-control"
               placeholder="Text"
-              name="text"
+              name="content"
               onChange={(e) =>
                 setPostData({ ...postData, [e.target.name]: e.target.value })
               }

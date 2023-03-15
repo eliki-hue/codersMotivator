@@ -28,6 +28,7 @@ function Register() {
       axios.post("http://127.0.0.1:8000/authentication/registration", userData)
       .then(response => {
         console.log(response.data);
+        navigate('/login')
       })
       .catch(error => {
         console.error(error, "not successful");
@@ -98,6 +99,7 @@ function Register() {
           </div>
           <p className="forgot-password text-right">
             {/* Already have an account? <Link to='/login'>login</Link> */}
+            Already have an account? <Link to='/login'>login</Link>
           </p>
         </form>
       </div>

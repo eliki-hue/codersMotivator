@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 // import { useDispatch } from 'react-redux';
 // import { HashLink as Link } from 'react-router-hash-link';
 // import {login} from '../actions/auth'
@@ -6,6 +6,7 @@ import React, { useState } from "react";
 // import {useNavigate} from "react-router-dom"
 import Profileimg from "../images/girl.jpeg"
 import "./profile.css"
+import axios from "axios";
 
 const initialState = {
   username: "",
@@ -16,6 +17,31 @@ const initialState = {
 function Profile() {
   const [ProfileData, setProfileData] = useState(initialState);
   const [imgfile, uploadimg] = useState([]);
+  const [UserUpdate,setUserUpdateInfo ] = useState([]);
+  
+    const handleSubmit = async(e)=>{
+        e.preventDefault()
+        try {
+            const response =await axios.post("http://127.0.0.1:8000/authentication/login",ProfileData)
+            console.log (response)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+       
+    React.useEffect(() => {
+      getUserUpdate();
+    }, []);
+    let getUserUpdate = async () => {
+      let response = await fetch(
+        "http://127.0.0.1:8000/authentication/all_users/"
+      );
+      let data = await response.json();
+      setUserUpdateInfo(data);
+      console.log(data)
+    };
+
+
   // const dispatch = useDispatch()
   // const navigate = useNavigate()
   // const handleSubmit =async (e)=>{
@@ -46,11 +72,11 @@ function Profile() {
   //     // navigate('/buses')
   //     // this.history.push("/buses");
   //     console.log("passed")
-  //     console.log(data)
+  //    console.log(data)
   //     // <Route exact path="/">
   //     //  <Navigate to="/buses" /> : <BusList />
   //     // </Route>
-  //     // return <Navigate to={{ pathname: '/buses'}} />
+  //     // return <Navigate to={{ path name: '/buses'}} />
   // }
   // else{
   //     console.log("failed")
@@ -130,7 +156,7 @@ function Profile() {
               />
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Admin Bio</label>
+              <label for="exampleInputEmail1">Bio</label>
               <input
                 class="form-control"
                 type="text"

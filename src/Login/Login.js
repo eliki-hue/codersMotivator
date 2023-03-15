@@ -14,14 +14,15 @@ const initialState = {
 
 }
 
-function LoginRegister()
-{
+function LoginRegister(){
+    let navigate =useNavigate();
     const [loginData, setLoginData]=useState(initialState)
     const handleSubmit = async(e)=>{
         e.preventDefault()
         try {
             const response =await axios.post("http://127.0.0.1:8000/authentication/login",loginData)
             console.log (response)
+            navigate('/postdisplay')
         } catch (error) {
             console.error(error)
         }
@@ -45,6 +46,8 @@ function LoginRegister()
                         <button type="submit" className="btn btn-primary">Login</button>
                         <hr />
                         <button type="button" className="btn btn-link">Signup</button>
+                        {/* <button type="button" className="btn btn-link" onclick="alert('Button clicked!')">Signup</button> */}
+
                         <button type="button" className="btn btn-link">Reset Password</button>
                     </form>
                 </div>

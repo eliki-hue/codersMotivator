@@ -16,6 +16,8 @@ import Profile from "./Profile/Profile";
 import LoginRegister from "./Login/Login";
 import Main from "./landingpage/Main";
 import {Provider } from 'react-redux'
+import postdisplay from "./PostDisplay/postdisplay";
+import PostDisplay from "./PostDisplay/postdisplay";
 
 
 function App() {
@@ -30,7 +32,9 @@ function App() {
           <Route path="single-view" element={""}></Route>
           <Route path="admin-dashboard" element={<Dashboard/>}></Route>
           <Route path="new-post" element={<NewPost/>}></Route>
-
+          <Route path="profile" element={<Profile/>}></Route>
+          <Route path="postdisplay" element={<PostDisplay/>}></Route>
+         
         </Routes>
       </BrowserRouter>
     
