@@ -2,8 +2,21 @@ import React from "react";
 import "./Dashboard.css";
 import homeIcon from "../images/home-icon.png";
 import pic from "../images/sitting.jpeg";
+import { useState ,useEffect} from "react";
 
 function Dashboard() {
+  const [Users,setUserData]=useState([])
+  React.useEffect(() => {
+    getUserUpdate();
+  }, []);
+  let getUserUpdate = async () => {
+    let response = await fetch(
+      "http://127.0.0.1:8000/authentication/all_users/"
+    );
+    let data = await response.json();
+    setUserData(data);
+    console.log(data)
+  };
   return (
     <div>
       <div className="container-fluid">
@@ -60,7 +73,7 @@ function Dashboard() {
                         <th scope="col">#</th>
                         <th scope="col">user pic</th>
                         <th scope="col">user Name</th>
-                        <th scope="col">Phone</th>
+                        <th scope="col">Bio</th>
                         <th scope="col">Email</th>
                         <th scope="col">Role</th>
                         <th scope="col">Post</th>
@@ -68,21 +81,25 @@ function Dashboard() {
                       </tr>
                     </thead>
                     <tbody>
+                    {Users.map((user, index) => (
                       <tr>
                         <th scope="row"></th>
                         <td>
                           <img src={pic} />
                         </td>
-                        <td>Mary</td>
-                        <td>098655</td>
-                        <td>123@gmail.com</td>
-                        <td>staff</td>
+                        <td>{user.username}</td>
+                        <td>{user.bio}</td>
+                        <td>{user.email}</td>
+                        <td>{user.role}</td>
                         <td>334</td>
                         <td><button>Remove</button></td>
-
+          
                       </tr>
+                    ))}
                     </tbody>
+                  
                   </table>
+                  
                 </div>
               </div>
             </div>

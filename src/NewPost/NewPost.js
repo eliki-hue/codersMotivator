@@ -6,18 +6,30 @@ import Videoupload from "./Videoupload";
 // import {registerDriver} from '../actions/auth'
 // import {useNavigate} from "react-router-dom"
 import { HashLink as Link } from "react-router-hash-link";
+import axios from "axios";
 
 const initialState = {
-  username: "",
-  email: "",
-  password1: "",
-  password2: "",
+  category: "1",
+  title: "",
+  image: "",
+  video: "",
+  author: 3,
+  
 };
 
 function NewPost() {
   // let navigate =useNavigate();
 
   const [postData, setPostData] = useState(initialState);
+  const handleSubmit = async(e)=>{
+    e.preventDefault()
+    try {
+        const response =await axios.post("http://127.0.0.1:8000/api/post/",postData)
+        console.log (response)
+    } catch (error) {
+        console.error(error)
+    }
+}
   // const dispatch = useDispatch()
   // const handleSubmit = (e)=>{
   //     e.preventDefault()
@@ -39,7 +51,7 @@ function NewPost() {
   return (
     <div className="container-fluid">
       <div className="signup">
-        <form onSubmit={""} type="post">
+        <form onSubmit={handleSubmit} type="post">
           <h3>NewPost</h3>
           <div className="form-group">
             <label htmlFor="exampleFormControlSelect1">Category</label>
@@ -48,7 +60,7 @@ function NewPost() {
               <option>Backend</option>
               <option>Frontend</option>
               <option>Machine Learning</option>
-              <option>Artificial Interrigence</option>
+              <option>Artificial Intelligence</option>
             </select>
           </div>
           <div className="inputs">
@@ -90,7 +102,7 @@ function NewPost() {
               type="textarea"
               className="form-control"
               placeholder="Text"
-              name="text"
+              name="content"
               onChange={(e) =>
                 setPostData({ ...postData, [e.target.name]: e.target.value })
               }
