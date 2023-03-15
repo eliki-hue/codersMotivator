@@ -37,7 +37,7 @@ export default function VideoInput(props) {
           src={source}
         />
       )}
-      <div className="VideoInput_footer">{source || "Nothing selectd"}</div>
+      <div className="VideoInput_footer">{source || "Nothing selected"}</div>
     </div>
   );
 }

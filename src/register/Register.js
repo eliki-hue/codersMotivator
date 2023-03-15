@@ -28,6 +28,7 @@ function Register() {
       axios.post("http://127.0.0.1:8000/authentication/registration", userData)
       .then(response => {
         console.log(response.data);
+        navigate('/login')
       })
       .catch(error => {
         console.error(error, "not successful");
@@ -44,9 +45,9 @@ function Register() {
       <div className="signup">
         <form onSubmit={handleSubmit} type="post">
           <h3>Register</h3>
-          <div class="form-group">
+          <div className="form-group">
             <label for="exampleFormControlSelect1">You are?</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select className="form-control" id="exampleFormControlSelect1">
               <option>Student</option>
               <option>Staff</option>
             </select>
@@ -98,6 +99,7 @@ function Register() {
           </div>
           <p className="forgot-password text-right">
             {/* Already have an account? <Link to='/login'>login</Link> */}
+            Already have an account? <Link to='/login'>login</Link>
           </p>
         </form>
       </div>

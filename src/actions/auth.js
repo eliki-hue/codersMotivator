@@ -14,13 +14,24 @@ export const registration = (user) =>async(dispatch)=> {
     
   }
 }
-
+export const Post = (user) =>async(dispatch)=> {
+  try {
+        const data = await register.NewPost(user)
+        console.log(data)
+        console.log(data.status)
+  } catch (error) {
+    console.log(error)
+    
+  }
+}
 
 
 const auth = () => {
   return (
     <div>auth</div>
   )
+
+  
 }
 
 export default auth

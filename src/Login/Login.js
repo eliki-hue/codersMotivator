@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React,{useState} from 'react';
-// import { useDispatch } from 'react-redux';
-// import { HashLink as Link } from 'react-router-hash-link';
-// import {login} from '../actions/auth'
+import { useDispatch } from 'react-redux';
+import { HashLink as Link } from 'react-router-hash-link';
+import {login} from '../actions/auth'
 import './loginPage.css'
-// import {useNavigate} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
+import axios from "axios";
 
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
 }
 
 function LoginRegister(){
+<<<<<<< HEAD
 
     const [loginData, setLoginData] = useState(initialState)
 
@@ -35,46 +37,21 @@ function LoginRegister(){
         // e.preventDefault()
         // dispatch(login(loginData))
         // setTimeout(function() {
+=======
+    let navigate =useNavigate();
+    const [loginData, setLoginData]=useState(initialState)
+    const handleSubmit = async(e)=>{
+        e.preventDefault()
+        try {
+            const response =await axios.post("http://127.0.0.1:8000/authentication/login",loginData)
+            console.log (response)
+            navigate('/postdisplay')
+        } catch (error) {
+            console.error(error)
+        }
+    }
+>>>>>>> eabb5ef53cab4ab92d884ea5e32ad5dea3a6c758
             
-        //     const userId =localStorage.getItem('userId')
-        // const userRole =  localStorage.getItem('userRole')
-        // if (userId && userRole === "Customer") {
-        //     console.log('tested')
-        //     navigate('/buses')
-        // }
-        // else if(userId && userRole === "Driver") {
-        //     console.log('tested')
-        //     navigate('/')}
-
-        //     }, 3000);
-        
-
-        // // console.log('userid',userId)
-        // // if (userId){
-            
-        // //     navigate('/buses')
-        // // }
-        
-        // // console.log(data.data.User_role)
-        
-        // //     // navigate('/buses')
-        // //     // this.history.push("/buses");
-        // //     console.log("passed")
-        // //     console.log(data)
-        // //     // <Route exact path="/">
-        // //     //  <Navigate to="/buses" /> : <BusList />
-        // //     // </Route>
-        // //     // return <Navigate to={{ pathname: '/buses'}} />
-        // // }
-        // // else{
-        // //     console.log("failed")
-        // // }
-        // // if (roles && roles.indexOf(currentUser.role) === -1) {
-        // //     // role not authorised so redirect to home page
-        // //     return <Redirect to={{ pathname: '/'}} />
-        // // }
-        // console.log(loginData)
-    // } 
     return(
         <div className="back">
             <div className="div-center">
@@ -93,6 +70,11 @@ function LoginRegister(){
                         <button type="submit" className="btn btn-primary">Login</button>
                         <hr />
                         <button type="button" className="btn btn-link">Signup</button>
+<<<<<<< HEAD
+=======
+                        {/* <button type="button" className="btn btn-link" onclick="alert('Button clicked!')">Signup</button> */}
+
+>>>>>>> eabb5ef53cab4ab92d884ea5e32ad5dea3a6c758
                         <button type="button" className="btn btn-link">Reset Password</button>
                     </form>
                 </div>
