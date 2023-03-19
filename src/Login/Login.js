@@ -5,7 +5,6 @@ import { HashLink as Link } from 'react-router-hash-link';
 import {login} from '../actions/auth'
 import './loginPage.css'
 import {useNavigate} from "react-router-dom"
-import axios from "axios";
 
 
 const initialState = {
@@ -16,28 +15,6 @@ const initialState = {
 }
 
 function LoginRegister(){
-<<<<<<< HEAD
-
-    const [loginData, setLoginData] = useState(initialState)
-
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        console.log("submiting .......")
-        try {
-            const response = await axios.post("http://127.0.0.1:8000/authentication/login", loginData)
-            console.log(response)
-        } catch (error) {
-            console.error(error)
-        }
-        
-    }
-    // const dispatch = useDispatch()
-    // const navigate = useNavigate()
-    // const handleSubmit =async (e)=>{
-        // e.preventDefault()
-        // dispatch(login(loginData))
-        // setTimeout(function() {
-=======
     let navigate =useNavigate();
     const [loginData, setLoginData]=useState(initialState)
     const handleSubmit = async(e)=>{
@@ -50,7 +27,7 @@ function LoginRegister(){
             console.error(error)
         }
     }
->>>>>>> eabb5ef53cab4ab92d884ea5e32ad5dea3a6c758
+
             
     return(
         <div className="back">
@@ -70,11 +47,10 @@ function LoginRegister(){
                         <button type="submit" className="btn btn-primary">Login</button>
                         <hr />
                         <button type="button" className="btn btn-link">Signup</button>
-<<<<<<< HEAD
-=======
+
+
                         {/* <button type="button" className="btn btn-link" onclick="alert('Button clicked!')">Signup</button> */}
 
->>>>>>> eabb5ef53cab4ab92d884ea5e32ad5dea3a6c758
                         <button type="button" className="btn btn-link">Reset Password</button>
                     </form>
                 </div>

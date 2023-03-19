@@ -34,31 +34,15 @@ function PostDisplay() {
 
   return (
     <div>
-      <h1>My Blog</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Title:
-          <input type="text" name="title" />
-        </label>
-        <br />
-        <label>
-          Content:
-          <textarea name="content" />
-        </label>
-        <br />
-        <label>
-          Author:
-          <input type="text" name="author" />
-        </label>
-        <br />
-        <button type="submit">Add Post</button>
-      </form>
+      
       {/* Add code to display the posts */}
       {posts.map((post, index) => (
         <div key={index}>
           <h2>{post.title}</h2>
           <p>{post.content}</p>
-          <p>{post.author.username}</p>
+          <p>{post.image}</p>
+          <p>{post.video}</p>
+          <p>{post.time_posted}</p>
         </div>
       ))}
     </div>

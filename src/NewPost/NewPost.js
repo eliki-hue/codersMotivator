@@ -8,18 +8,21 @@ import axios from "axios";
 // import {useNavigate} from "react-router-dom"
 import { HashLink as Link } from "react-router-hash-link";
 
+
 const initialState = {
-  title: "",
-  category: 1,
-  image: "",
-  video: "",
-  author:1
+  category:1,
+  title: "fgnmnmnm",
+  image: "erhjkk",
+  video: "fghjjujyttt",
+  author: 3,
+  
 };
 
 function NewPost() {
   // let navigate =useNavigate();
 
   const [postData, setPostData] = useState(initialState);
+  
   // const dispatch = useDispatch()
   const handleSubmit = (e)=>{
       e.preventDefault()
@@ -58,7 +61,7 @@ function NewPost() {
               <option>Backend</option>
               <option>Frontend</option>
               <option>Machine Learning</option>
-              <option>Artificial Interrigence</option>
+              <option>Artificial Intelligence</option>
             </select>
           </div>
           <div className="inputs">
@@ -73,7 +76,7 @@ function NewPost() {
               }
             />
           </div>
-          <div>
+          {/* <div>
             <center>
               <h2>Upload</h2>
               <input type="file" onChange={imgFilehandler} />
@@ -92,7 +95,7 @@ function NewPost() {
           </div>
 
           <h1>Video upload</h1>
-          <Videoupload width={400} height={300} />
+          <Videoupload width={400} height={300} /> */}
 
           <div className="inputs">
             <label></label>
@@ -100,7 +103,7 @@ function NewPost() {
               type="textarea"
               className="form-control"
               placeholder="Text"
-              name="text"
+              name="content"
               onChange={(e) =>
                 setPostData({ ...postData, [e.target.name]: e.target.value })
               }
