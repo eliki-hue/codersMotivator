@@ -42,14 +42,7 @@ function Dashboard() {
   
      
     }
-    // const deleteData = async (id) => {
-    //   try {
-    //     const response = await axios.delete(`https://example.com/api/data/${id}`);
-    //     console.log(response.data); // Success message from the server
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
-    // }
+ 
   return (
     <div>
       <div className="container-fluid">
